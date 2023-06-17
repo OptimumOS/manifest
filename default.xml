@@ -1201,5 +1201,8 @@
   <include name="snippets/pixel.xml" />
   <include name="snippets/pixel-extras.xml" />
   <include name="snippets/pixel-caf.xml" />
+  
+  <!-- Add all OptimumOS repos -->
+  <include name="snippets/oos.xml" />
 
 </manifest>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="oos-plus"
+          fetch="https://github.com/OptimumOS"
+          revision="thirteen-plus" />
+
+  <remote name="oos"
+          fetch="https://github.com/OptimumOS"
+          revision="twelve" />
+
+  <remote name="oost"
+          fetch="https://github.com/OptimumOS"
+          revision="thirteen" />
+
+  <!-- General repos -->
+
+  <project path="vendor/aosp" name="vendor_aosp" remote="oos-plus" />
+
+  <project path="build/make" name="build" remote="oost">
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="build_soong" remote="oost" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <project path="manifest" name="manifest" remote="oos-plus" />
+
+  <!-- Packages repos -->
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="oos" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="oos-plus" />
+
+  <!-- Framework repos -->
+  <project path="frameworks/base" name="frameworks_base" remote="oos" />
+  <project path="frameworks/base" name="frameworks_base" remote="oos-plus" />
+
+</manifest>
